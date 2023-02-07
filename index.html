@@ -13,16 +13,19 @@
 <body>
     <div class="container">
         <i class="fa-solid fa-money-bill-transfer logo"></i>
-        <div class="balance"><h1>Treść zależna od wyniku</h1></div>
+        <h1 class="balance">Treść zależna od wyniku</h1>
         <div class="boxes">
             <div class="income box">
                 <h2 class="title">PRZYCHODY</h2>
                 <form class="forms"></form>
                     <input type="text" placeholder="Nazwa przychodu" autocomplete="on">
-                    <input type="text" placeholder="Kwota">
+                    <input type="number" placeholder="Kwota">
                     <input type="submit" value="Dodaj" class="submit incomeButton">
                 </form>
-                <ul></ul>
+                <ul>
+
+                </ul>
+                <p class="sum">Suma przychodów: <strong class="incomeSum"></strong> <b>zł</b></p>
             </div><!--end of income-->
             <div class="expances box">
                 <h2 class="title">WYDATKI</h2>
@@ -31,7 +34,10 @@
                     <input type="text" placeholder="Kwota">
                     <input type="submit" value="Dodaj" class="submit expencesButton">
                 </form>
-                <ul></ul>
+                <ul>
+
+                </ul>
+                <p class="sum">Suma wydatków: <strong class="expancesSum"></strong> <b>zł</b></p>
             </div><!--end of expances-->
         </div><!--end of boxes-->
     </div>

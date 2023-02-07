@@ -20,12 +20,12 @@ body {
 .boxes::before {
     content: "";
     border: 1px solid rgb(43, 8, 8);
-    width: 800px;
+    width: 80%;
     height: 0px;
     z-index: 2;
     position: absolute;
     top: 105px;
-    left: 50px;
+    left: 80px;
 
 }
 .box {
@@ -41,4 +41,11 @@ body {
 ul {
     margin-top: 15px;
     list-style-type: disc;
+}
+
+
+
+.sum {
+    position: absolute;
+    bottom: 15px;
 }
