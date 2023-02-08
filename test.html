@@ -17,28 +17,46 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="" />
-    <link rel="icon" href="icons8-us-dollar-circled-100.png">
+    <link rel="icon" href="icons8-us-dollar-circled-100.png" />
     <!--<link rel="stylesheet" href="style.css" />-->
   </head>
   <body>
     <div class="container text-center m-4">
-        <img src="icons8-us-dollar-circled-100.png" alt="Dollar sign" class="img-thumbnail m-2" />
-        <h1 class="m-2">Tekst z js</h1>
-        <div class="row">
-            <div class="col">
-              Przychody
+      <img
+        src="icons8-us-dollar-circled-100.png"
+        alt="Dollar sign"
+        class="img-thumbnail m-2"
+      />
+      <h1 class="m-2">Tekst z js</h1>
+      <div class="row">
+        <div class="col border">
+          <p class="text-uppercase fw-bold fs-4 m-2">Przychody</p>
+          <div class="row">
+            <div class="col-6">
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Nazwa przychodu"
+                aria-label=".form-control-lg example"
+              />
             </div>
-            <div class="col">
-              Wydatki
+            <div class="col-4">
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Kwota"
+                aria-label=".form-control-lg example"
+              />
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-primary mb-3">Dodaj</button>
             </div>
           </div>
-
-
-
-
-
-
-
+        </div>
+        <div class="col border">
+          <p class="text-uppercase fw-bold fs-4 m-2">Wydatki</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
