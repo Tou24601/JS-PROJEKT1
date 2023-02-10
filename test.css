@@ -1,0 +1,9 @@
+input {
+    height: 40px;
+}
+button {
+    height: 45px;
+}
+ul {
+    list-style-type: disc;
+}
