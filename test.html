@@ -33,22 +33,26 @@
           <p class="text-uppercase fw-bold fs-4 m-2">Przychody</p>
           <div class="row">
             <div class="col-12 col-lg-6">
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                placeholder="Nazwa przychodu"
-              />
-            </div>
-            <div class="col-4">
-              <input
-                class="form-control form-control-lg mt-2 mt-lg-0"
-                type="text"
-                placeholder="Kwota"
-              />
-            </div>
-            <div class="col-2">
-              <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0">Dodaj</button>
-            </div>
+              <form id="incomeForm">
+                <input
+                  class="form-control form-control-lg"
+                  id="IncomeName"
+                  type="text"
+                  placeholder="Nazwa przychodu"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                  class="form-control form-control-lg mt-2 mt-lg-0"
+                  id="incomeNumber"
+                  type="text"
+                  placeholder="Kwota"
+                />
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0">Dodaj</button>
+              </div>
+            </form>
           </div><!--row ends here-->
           <ul class="listIncome mt-4"></ul>
           <p class="align-text-bottom mt-5 bottomText">Suma przychodów: <span class="sum incomeSum"></span> <span class="fw-bold">zł</span></p>
@@ -65,7 +69,7 @@
             </div>
             <div class="col-4">
               <input
-                class="form-control form-control-lg mt-2 mt-lg-0"
+                class="form-control form-control-lg mt-2 mt-lg-0 incomeSumInput"
                 type="text"
                 placeholder="Kwota"
               />

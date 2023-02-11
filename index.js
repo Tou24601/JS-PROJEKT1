@@ -1,6 +1,13 @@
 /*array incomes = [
-    {incomeName: "string"};
-    {incomeValue: number};
+    id: string,
+    name: string.
+]
 ]*/
 
-const incomeNameInput = document.querySelector(".incomeNameInput");
+let incomeNameInput = document.querySelector(".incomeNameInput");
+let incomeSumInput = document.querySelector("incomeSumInput");
+
+
+document.addEventListener("click", function()) {
+    
+}
