@@ -12,10 +12,6 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/c02e74f09f.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="" />
     <link rel="icon" href="icons8-us-dollar-circled-100.png" />
     <link rel="stylesheet" href="test.css" />
@@ -32,11 +28,11 @@
         <div class="col border income text-start">
           <p class="text-uppercase fw-bold fs-4 m-2">Przychody</p>
           <div class="row">
-            <div class="col-12 col-lg-6">
-              <form id="incomeForm">
+            <!--<form id="incomeForm">-->
+              <div class="col-12 col-lg-6">
                 <input
                   class="form-control form-control-lg"
-                  id="IncomeName"
+                  id="incomeNameInput"
                   type="text"
                   placeholder="Nazwa przychodu"
                 />
@@ -45,14 +41,14 @@
                 <input
                   class="form-control form-control-lg mt-2 mt-lg-0"
                   id="incomeNumber"
-                  type="text"
+                  type="number"
                   placeholder="Kwota"
                 />
               </div>
               <div class="col-2">
-                <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0" id="incomeButton">Dodaj</button>
+                <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0 addButton" id="incomeButton">Dodaj</button>
               </div>
-            </form>
+            <!--</form>-->
           </div><!--row ends here-->
           <ul class="mt-4" id="listIncome"></ul>
           <p class="align-text-bottom mt-5 bottomText">Suma przychodów: <span class="sum" id="incomeSum"></span> <span class="fw-bold">zł</span></p>
@@ -62,7 +58,8 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <input
-                class="form-control form-control-lg incomeNameInput"
+                class="form-control form-control-lg"
+                id=""
                 type="text"
                 placeholder="Nazwa wydatku"
               />
@@ -78,7 +75,7 @@
               <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0">Dodaj</button>
             </div>
           </div><!--row ends here-->
-          <ul class="listExpances mt-4"></ul>
+          <ul class="mt-4" id=""></ul>
           <p class="align-text-bottom mt-5 bottomText">Suma wydatków: <span class="sum expancesSum fw-bold"></span> <span class="fw-bold">zł</span></p>
         </div>
         </div>

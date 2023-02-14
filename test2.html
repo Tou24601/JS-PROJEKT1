@@ -12,10 +12,6 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/c02e74f09f.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="" />
     <link rel="icon" href="icons8-us-dollar-circled-100.png" />
     <link rel="stylesheet" href="test.css" />
@@ -23,42 +19,34 @@
   <body>
     <div class="container text-center m-4">
       <img
-        src="icons8-us-dollar-circled-100.png"
-        alt="Dollar sign"
-        class="img-thumbnail m-2"
+      src="icons8-us-dollar-circled-100.png"
+      alt="Dollar sign"
+      class="img-thumbnail m-2"
       />
       <h1 class="m-4" id="balance">Tekst z js</h1>
       <div class="row">
-        <div class="col border income text-start">
-          <p class="text-uppercase fw-bold fs-4 m-2">Przychody</p>
+        <div class="col-6 text-start border" id="income">
+          <p class="text-start fs-2 fw-bold m-2">Przychody</p>
           <div class="row">
-            <div class="col-12 col-lg-6">
-              <form id="incomeForm">
-                <input
-                  class="form-control form-control-lg"
-                  id="IncomeName"
-                  type="text"
-                  placeholder="Nazwa przychodu"
-                />
-              </div>
-              <div class="col-4">
-                <input
-                  class="form-control form-control-lg mt-2 mt-lg-0"
-                  id="incomeNumber"
-                  type="text"
-                  placeholder="Kwota"
-                />
-              </div>
-              <div class="col-2">
-                <button type="submit" class="btn btn-primary mt-2 mt-lg-0 me-4 me-xl-0" id="incomeButton">Dodaj</button>
-              </div>
+            <form id="incomeForm" action="">
+              <input class="form-control form-control-lg col-12 col-lg-6" type="text" placeholder="Nazwa przychodu" id="IncomeName" />
+              <input class="form-control form-control-lg col-4" type="text" placeholder="Kwota" id="incomeNumber" />
+              <button class="btn btn-primary col-2" type="submit" id="incomeButton">Dodaj</button>
             </form>
-          </div><!--row ends here-->
-          <ul class="mt-4" id="listIncome"></ul>
-          <p class="align-text-bottom mt-5 bottomText">Suma przychodów: <span class="sum" id="incomeSum"></span> <span class="fw-bold">zł</span></p>
-        </div>
-      </div>
-    </div>
+          </div><!--row with income form ends-->
+
+        </div><!--col przychody ends-->
+        <div class="col text-start">
+
+        </div><!--col wydatki ends-->
+      </div><!--row with przychody i wydatki ends-->
+    </div><!--container ends-->
+
+
+
+
+
+
     <script src="index.js"></script>
   </body>
 </html>
