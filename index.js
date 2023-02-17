@@ -7,12 +7,43 @@ const incomeButton = document.querySelector("#incomeButton");
 const incomeSum = document.querySelector("#incomeSum");
 const listIncome = document.querySelector("#listIncome");
 
+const renderIdItem = (task) => {
+    const liElement = document.createElement("li");
+    liElement.id = `li-${ulItem.id}`
+    liElement.classList.add("mt-4");
+    liElement.classList.add("fs-5");
+    liElement.innerText = `${ulItemName}: ${ulItemValue} zł`;
+    
+}
+
+const createListItem = () => {
+
+    const ulItemId = Date.now();
+    const ulItemName = incomeNameInput.value;
+    const ulItemValue = incomeNumber.value;
+
+    const ulItem = {
+        id: ulItemId,
+        name: ulItemName,
+        value: ulItemValue,
+        isDone: true
+    }
+
+}
+
+incomeButton.addEventListener("click", createListItem);
+
+
+
+/*
 
 const createListItem = () => {
     const liIncome = document.createElement("li");
     liIncome.classList.add("mt-4");
     liIncome.classList.add("fs-5");
-    liIncome.innerText = `${incomeNameInput.value}: ${incomeNumber.value} zł`;
+    const liName = incomeNameInput.value;
+    const liNumber = incomeNumber.value
+    liIncome.innerText = `${liName}: ${liNumber} zł`;
 
     const editButton = document.createElement("button");
     editButton.innerText = "Edytuj";
@@ -31,6 +62,10 @@ const createListItem = () => {
     liIncome.appendChild(editButton);
     liIncome.appendChild(deleteButton);
 
+    const renderListItem = () => {
+
+    }
+
     const editListItem = () => {
         const newNameInput = document.createElement("input");
         newNameInput.value = incomeNameInput.value;
@@ -38,7 +73,7 @@ const createListItem = () => {
         newNameInput.classList.add("form-control-lg");
 
         const newNumberInput = document.createElement("input");
-        newNumberInput.value = incomeNumber.value;
+        newNumberInput.value = incomeNumber.value;/*here is the problem
         newNumberInput.classList.add("form-control");
         newNumberInput.classList.add("form-control-lg");
         newNumberInput.classList.add("mt-2");
@@ -69,3 +104,4 @@ const createListItem = () => {
 
 incomeButton.addEventListener("click", createListItem);
 
+*/
