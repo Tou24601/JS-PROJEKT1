@@ -9,7 +9,8 @@ const incomeButton = document.querySelector("#incomeButton");
 const incomeSum = document.querySelector("#incomeSum");
 const listIncome = document.querySelector("#listIncome");
 
-const renderIdItem = () => {
+const createListItem = () => {
+    
     const liElement = document.createElement("li");
     liElement.classList.add("mt-4");
     liElement.classList.add("fs-5");
@@ -36,42 +37,72 @@ const renderIdItem = () => {
 
 
     const editListItem = () => {
+        const newRow = document.createElement("div");
+        newRow.classList.add("row");
+
+        const nameInputHolder = document.createElement("div");
+        nameInputHolder.classList.add("col-12");
+        nameInputHolder.classList.add("col-lg-6");
+        newRow.appendChild(nameInputHolder);
+
         const newNameInput = document.createElement("input");
-        newNameInput.value = incomeNameInput.value;
+        newNameInput.value = liName;
         newNameInput.classList.add("form-control");
         newNameInput.classList.add("form-control-lg");
+        nameInputHolder.appendChild(newNameInput);
+
+        const numberInputHolder = document.createElement("div");
+        numberInputHolder.classList.add("col-4");
+        newRow.appendChild(numberInputHolder);
 
         const newNumberInput = document.createElement("input");
-        newNumberInput.value = incomeNumber.value; //here is the problem
+        newNumberInput.value = liNumber;
         newNumberInput.classList.add("form-control");
         newNumberInput.classList.add("form-control-lg");
         newNumberInput.classList.add("mt-2");
         newNumberInput.classList.add("mt-lg-0");
         liElement.innerHTML = "";
+        numberInputHolder.appendChild(newNumberInput);
 
-        const newButton = document.createElement("button")
-        newButton
-        liElement.appendChild(newNameInput);
-        liElement.appendChild(newNumberInput);
-        liElement.appendChild(newButton);
+        const buttonHolder = document.createElement("div");
+        buttonHolder.classList.add("col-2");
+        newRow.appendChild(buttonHolder);
 
-        const newButtonFunction = () => {
+        const newAddButton = document.createElement("button");
+        newAddButton.classList.add("btn");
+        newAddButton.classList.add("btn-primary");
+        newAddButton.classList.add("mt-2");
+        newAddButton.classList.add("mt-lg-0");
+        newAddButton.classList.add("me-4");
+        newAddButton.classList.add("me-xl-0");
+        newAddButton.classList.add("me-xl-0");
+        newAddButton.innerText = "Dodaj";
+        buttonHolder.appendChild(newAddButton);
+
+        liElement.appendChild(newRow);
+
+        const newAddButtonFunction = () => {
             liElement.style.setProperty("display", "none");
+            //here adding new liElement
         };
 
-        newButton.addEventListener("click", newButtonFunction);
+        newAddButton.addEventListener("click", createListItem);
+        newAddButton.addEventListener("click", newAddButtonFunction); //switch?
     }
     editButton.addEventListener("click", editListItem);
 
     const deleteListItem = () => {
         liElement.style.setProperty("display", "none");
     }
-    deleteButton.addEventListener("click", deleteListItem, createListItem);
+    deleteButton.addEventListener("click", deleteListItem);
+
+    incomeNameInput.value = "";
+    incomeNumber.value = "";
 
     return liElement;
 }
 
-const createListItem = () => {
+/*const createListItem = () => {
 
     const ulItemId = Date.now();
     const ulItemName = incomeNameInput.value;
@@ -88,7 +119,7 @@ const createListItem = () => {
 
     incomeNameInput.value = "";
     incomeNumber.value = "";
-}
+}*/
 
 
 incomeButton.addEventListener("click", createListItem);
