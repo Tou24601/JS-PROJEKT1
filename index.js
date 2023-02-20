@@ -82,17 +82,16 @@ const createListItem = () => {
         liElement.appendChild(newRow);
 
         const newAddButtonFunction = () => {
-            liElement.style.setProperty("display", "none");
-            //here adding new liElement
+            liElement.remove();
         };
 
         newAddButton.addEventListener("click", createListItem);
-        newAddButton.addEventListener("click", newAddButtonFunction); //switch?
+        newAddButton.addEventListener("click", newAddButtonFunction);
     }
     editButton.addEventListener("click", editListItem);
 
     const deleteListItem = () => {
-        liElement.style.setProperty("display", "none");
+        liElement.remove();
     }
     deleteButton.addEventListener("click", deleteListItem);
 
