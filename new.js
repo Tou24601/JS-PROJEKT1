@@ -1,4 +1,5 @@
 let incomeList = [];
+let values = [];
 
 const balance = document.querySelector("#balance");
 
@@ -14,6 +15,7 @@ const listIncome = document.querySelector("#listIncome");
 const incomeSum = document.querySelector("#incomeSum");
 
 const addItem = () => {
+
     const newItem = {
         name : incomeNameInput.value,
         value : incomeNumber.value,
@@ -31,6 +33,7 @@ const renderIcomes = () => {
     })};
 
 const createListItem = (element) => {
+
     //list item
     const liElement = document.createElement("li");
     liElement.classList.add("mt-4");
@@ -139,11 +142,13 @@ const createListItem = (element) => {
 
     incomeNameInput.value = "";
     incomeNumber.value = "";
+    
+    let valueAsNumber = parseFloat(element.value)
+    values.push(valueAsNumber);
 
-    const incomeAfterReduce = incomeList.reduce((acc, number) => {
+    let incomeAfterReduce = values.reduce((acc, number) => {
         return acc + number;
     }, 0);
-    console.log(incomeAfterReduce)
     incomeSum.innerHTML = incomeAfterReduce;
 }
 
