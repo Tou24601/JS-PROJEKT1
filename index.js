@@ -1,4 +1,4 @@
-let ulItems = [];
+let incomeList = [];
 
 
 const balance = document.querySelector("#balance");
