@@ -1,5 +1,4 @@
 let incomeList = [];
-let values = [];
 
 const balance = document.querySelector("#balance");
 
@@ -14,31 +13,35 @@ const listIncome = document.querySelector("#listIncome");
 //income sum
 const incomeSum = document.querySelector("#incomeSum");
 
+const reduceIncome = () => {
+    let incomeAfterReduce = incomeList.reduce((acc, item) => {
+        return acc + Number(item.value);
+    }, 0);
+    incomeSum.innerText = incomeAfterReduce;
+};
+
 const addItem = () => {
 
+    if (incomeNameInput.value == "" || incomeNumber.value == "" || incomeNumber.value < 0) {
+        alert("Wprowadź poprawne dane");
+    } else {
     const newItem = {
         name : incomeNameInput.value,
         value : incomeNumber.value,
         id : Date.now()
     };
-
     incomeList.push(newItem);
-    renderIcomes()
- 
-};
-
-const renderIcomes = () => {
-    incomeList.forEach(element => {
-        createListItem(element);
-    })};
+    createListItem(newItem);
+}};
 
 const createListItem = (element) => {
 
     //list item
     const liElement = document.createElement("li");
     liElement.classList.add("mt-4");
-    liElement.classList.add("fs-5");
-    liElement.innerText = `${element.name}` + ": " + `${element.value}` + " zł";
+    const textHolder = document.createElement("span")
+    textHolder.classList.add("fs-5");
+    textHolder.innerText = `${element.name}` + ": " + `${element.value}` + " zł";
     
     //edit button
     const editButton = document.createElement("button");
@@ -58,6 +61,7 @@ const createListItem = (element) => {
     //append list item and buttons
 
     listIncome.appendChild(liElement);
+    liElement.appendChild(textHolder);
     liElement.appendChild(editButton);
     liElement.appendChild(deleteButton);
 
@@ -107,26 +111,12 @@ const createListItem = (element) => {
         liElement.appendChild(newRow);
 
         const newAddButtonFunction = () => {
+
             element.name = newNameInput.value;
             element.value = newNumberInput.value;
-            liElement.innerText = `${element.name}` + ": " + `${element.value}` + " zł";
-
-
-            /*const editButton = document.createElement("button");
-            editButton.innerText = "Edytuj";
-            editButton.classList.add("btn");
-            editButton.classList.add("btn-primary");
-            editButton.classList.add("me-4");
-            editButton.classList.add("ms-4");
-            const deleteButton = document.createElement("button");
-            deleteButton.innerText = "Usuń";
-            deleteButton.classList.add("btn");
-            deleteButton.classList.add("btn-primary");
-            deleteButton.classList.add("me-4");
-            liElement.appendChild(editButton);
-            liElement.appendChild(deleteButton);*/
-
+            textHolder.innerText = `${element.name}` + ": " + `${element.value}` + " zł";
             newRow.remove();
+            reduceIncome()
         };
 
         newAddButton.addEventListener("click", newAddButtonFunction);
@@ -134,22 +124,19 @@ const createListItem = (element) => {
     editButton.addEventListener("click", editListItem);
 
     const deleteListItem = () => {
-        //usun z incomeList
+        //usun z incomeList i odejmij od reduce
         liElement.remove();
+        const indexOfObject = listIncome.indexOf(element);
+        listIncome.splice(indexOfObject, 1);
+        reduceIncome()
         console.log(incomeList);
     }
     deleteButton.addEventListener("click", deleteListItem);
 
     incomeNameInput.value = "";
     incomeNumber.value = "";
-    
-    let valueAsNumber = parseFloat(element.value)
-    values.push(valueAsNumber);
 
-    let incomeAfterReduce = values.reduce((acc, number) => {
-        return acc + number;
-    }, 0);
-    incomeSum.innerHTML = incomeAfterReduce;
+    reduceIncome()
 }
 
 
