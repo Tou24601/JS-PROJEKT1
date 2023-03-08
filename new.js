@@ -1,4 +1,5 @@
 let incomeList = [];
+let expancesList = [];
 
 const balance = document.querySelector("#balance");
 
@@ -8,10 +9,21 @@ const incomeNumber = document.querySelector("#incomeNumber");
 const incomeButton = document.querySelector("#incomeButton");
 
 //income ul
-const listIncome = document.querySelector("#listIncome");
+const unorderedListIncome = document.querySelector("#unorderedListIncome");
 
 //income sum
 const incomeSum = document.querySelector("#incomeSum");
+
+//expances inputs
+const expancesNameInput = document.querySelector("#expancesNameInput");
+const expancesNumber = document.querySelector("#expancesNumber");
+const expancesButton = document.querySelector("#expancesButton");
+
+//expances ul
+const unorderedListExpances = document.querySelector("#unorderedListExpances");
+
+//expances sum
+const expancesSum = document.querySelector("#expancesSum");
 
 const reduceIncome = () => {
   const incomeAfterReduce = incomeList.reduce((acc, item) => {
@@ -20,26 +32,7 @@ const reduceIncome = () => {
   incomeSum.innerText = incomeAfterReduce;
 };
 
-const addItem = () => {
-  if (
-    incomeNameInput.value == "" ||
-    incomeNumber.value == "" ||
-    incomeNumber.value < 0
-  ) {
-    alert("Wprowadź poprawne dane");
-  } else {
-    const newItem = {
-      name: incomeNameInput.value,
-      value: incomeNumber.value,
-      id: Date.now(),
-    };
-    incomeList.push(newItem);
-    createListItem(newItem);
-    incomeNameInput.value = "";
-    incomeNumber.value = "";
-  }
-};
-const addItem2 = (nameInput, inputNumber, list) => {
+const addItem = (nameInput, inputNumber, listName) => {
   if (
     nameInput.value === "" ||
     inputNumber.value === "" ||
@@ -52,7 +45,7 @@ const addItem2 = (nameInput, inputNumber, list) => {
       value: inputNumber.value,
       id: Date.now(),
     };
-    list.push(newItem);
+    listName.push(newItem);
     createListItem(newItem);
     nameInput.value = "";
     inputNumber.value = "";
@@ -88,7 +81,7 @@ const createListItem = (element) => {
   liElement.appendChild(textHolder);
   liElement.appendChild(editButton);
   liElement.appendChild(deleteButton);
-  listIncome.appendChild(liElement);
+  unorderedListExpances.appendChild(liElement);
 
   const editListItem = () => {
     const newRow = document.createElement("div");
@@ -150,19 +143,23 @@ const createListItem = (element) => {
 
   const deleteListItem = (event) => {
     //coś tu nie działa
-    const index = incomeList.findIndex((element) => {
+    //nie ma jak przekazać listName'a
+    const index = listName.findIndex((element) => {
       return element.id == event.target.id;
     });
     incomeList.splice(index, 1);
     liElement.remove();
     reduceIncome();
   };
-  deleteButton.addEventListener("click", deleteListItem);
+  deleteButton.addEventListener("click", () => deleteListItem());
   reduceIncome();
 };
 
-incomeButton.addEventListener("click", addItem);
+
 incomeButton.addEventListener("click", () =>
-  addItem2(incomeNameInput, incomeNumber, incomeList)
+  addItem(incomeNameInput, incomeNumber, incomeList)
 );
-//expenseButton.addEventListener("click", () => addItem2(expenceNameInput, expenceNumber, listExpence));
+
+expancesButton.addEventListener("click", () =>
+  addItem(expancesNameInput, expancesNumber, expancesList)
+);
