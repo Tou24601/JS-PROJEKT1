@@ -1,0 +1,16 @@
+input, button {
+    display: inline-block;
+}
+input {
+    height: 40px;
+}
+.addButton {
+    height: 45px;
+}
+#tableHolder {
+    position: relative;
+}
+#sums {
+    position: absolute;
+    bottom: 5px;
+}
