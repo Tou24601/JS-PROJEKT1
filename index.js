@@ -69,6 +69,7 @@ const createListItem = (element, listName, ulListName, sumName) => {
   liElement.classList.add("mt-4");
   const textHolder = document.createElement("span");
   textHolder.classList.add("fs-5");
+  textHolder.classList.add("listElement");
   textHolder.innerText = `${element.name}: ${element.value} zł`;
 
   //edit button
@@ -77,7 +78,9 @@ const createListItem = (element, listName, ulListName, sumName) => {
   editButton.classList.add("btn");
   editButton.classList.add("btn-primary");
   editButton.classList.add("me-4");
+  editButton.classList.add("me-xl-0");
   editButton.classList.add("ms-4");
+  textHolder.classList.add("listElement");
 
   //delete button
   const deleteButton = document.createElement("button");
@@ -85,6 +88,8 @@ const createListItem = (element, listName, ulListName, sumName) => {
   deleteButton.classList.add("btn");
   deleteButton.classList.add("btn-primary");
   deleteButton.classList.add("me-4");
+  deleteButton.classList.add("me-xl-0");
+  textHolder.classList.add("listElement");
   deleteButton.id = element.id;
 
   //append list item and buttons

@@ -7,10 +7,15 @@ input {
 .addButton {
     height: 45px;
 }
-#tableHolder {
+.tableHolder {
     position: relative;
 }
-#sums {
+.sums {
     position: absolute;
     bottom: 5px;
+}
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
