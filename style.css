@@ -1,21 +1,22 @@
-input, button {
-    display: inline-block;
+input,
+button {
+  display: inline-block;
 }
 input {
-    height: 40px;
+  height: 40px;
 }
 .addButton {
-    height: 45px;
+  height: 45px;
 }
 .tableHolder {
-    position: relative;
+  position: relative;
 }
 .sums {
-    position: absolute;
-    bottom: 5px;
+  position: absolute;
+  bottom: 5px;
 }
 li {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
