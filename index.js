@@ -1,5 +1,5 @@
 let incomeList = [];
-let expancesList = [];
+let expensesList = [];
 
 const balance = document.querySelector("#balance");
 
@@ -14,16 +14,16 @@ const unorderedListIncome = document.querySelector("#unorderedListIncome");
 //income sum
 const incomeSum = document.querySelector("#incomeSum");
 
-//expances inputs
-const expancesNameInput = document.querySelector("#expancesNameInput");
-const expancesNumber = document.querySelector("#expancesNumber");
-const expancesButton = document.querySelector("#expancesButton");
+//expenses inputs
+const expensesNameInput = document.querySelector("#expensesNameInput");
+const expensesNumber = document.querySelector("#expensesNumber");
+const expensesButton = document.querySelector("#expensesButton");
 
-//expances ul
-const unorderedListExpances = document.querySelector("#unorderedListExpances");
+//expenses ul
+const unorderedListexpenses = document.querySelector("#unorderedListexpenses");
 
-//expances sum
-const expancesSum = document.querySelector("#expancesSum");
+//expenses sum
+const expensesSum = document.querySelector("#expensesSum");
 
 const reduceValues = (listName, sumName) => {
   const valueAfterReduce = listName.reduce((acc, item) => {
@@ -31,7 +31,7 @@ const reduceValues = (listName, sumName) => {
   }, 0);
   sumName.innerText = valueAfterReduce;
   const balanceValue =
-    Number(incomeSum.innerHTML) - Number(expancesSum.innerHTML);
+    Number(incomeSum.innerHTML) - Number(expensesSum.innerHTML);
   if (balanceValue === 0) {
     balance.innerHTML = "Bilans wynosi zero";
   } else if (balanceValue > 0) {
@@ -95,8 +95,13 @@ const createListItem = (element, listName, ulListName, sumName) => {
   ulListName.appendChild(liElement);
 
   const editListItem = () => {
+    liElement.setAttribute("style", "position: relative");
+
     const newRow = document.createElement("div");
-    newRow.setAttribute("style", "background-color: white");
+    newRow.setAttribute(
+      "style",
+      "background-color: white; position: absolute; top: -2px"
+    );
     newRow.classList.add("row");
 
     const nameInputHolder = document.createElement("div");
@@ -140,11 +145,19 @@ const createListItem = (element, listName, ulListName, sumName) => {
     liElement.appendChild(newRow);
 
     const newAddButtonFunction = () => {
-      element.name = newNameInput.value;
-      element.value = newNumberInput.value;
-      textHolder.innerText = `${element.name}: ${element.value} zł`;
-      newRow.remove();
-      reduceValues(listName, sumName);
+      if (
+        newNameInput.value === "" ||
+        newNumberInput.value === "" ||
+        newNumberInput.value <= 0
+      ) {
+        alert("Wprowadź poprawne dane");
+      } else {
+        element.name = newNameInput.value;
+        element.value = newNumberInput.value;
+        textHolder.innerText = `${element.name}: ${element.value} zł`;
+        newRow.remove();
+        reduceValues(listName, sumName);
+      }
     };
 
     newAddButton.addEventListener("click", newAddButtonFunction);
@@ -173,12 +186,12 @@ incomeButton.addEventListener("click", () =>
   )
 );
 
-expancesButton.addEventListener("click", () =>
+expensesButton.addEventListener("click", () =>
   addItem(
-    expancesNameInput,
-    expancesNumber,
-    expancesList,
-    unorderedListExpances,
-    expancesSum
+    expensesNameInput,
+    expensesNumber,
+    expensesList,
+    unorderedListexpenses,
+    expensesSum
   )
 );
