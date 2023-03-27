@@ -121,6 +121,7 @@ const createListItem = (element, listName, ulListName, sumName) => {
 
     const newNumberInput = document.createElement("input");
     newNumberInput.value = element.value;
+    newNumberInput.setAttribute("type", "number");
     newNumberInput.classList.add("form-control");
     newNumberInput.classList.add("form-control-lg");
     newNumberInput.classList.add("mt-2");
