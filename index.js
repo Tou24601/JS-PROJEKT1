@@ -1,3 +1,5 @@
+"use strict";
+
 let incomeList = [];
 let expensesList = [];
 
