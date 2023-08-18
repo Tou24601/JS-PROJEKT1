@@ -1,5 +1,5 @@
 # JS-PROJEKT1
 
-simple JavaScript website
+simple Vanilla JavaScript responsive website
 
 live preview: https://budzet-jkolakowska.netlify.app/
